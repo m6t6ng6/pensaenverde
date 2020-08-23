@@ -145,7 +145,7 @@ services:
     expose:
       - "80"
     volumes:
-      - ${APP_VOLUME_LOCAL_PATH}:/usr/share/nginx/html:ro
+      - ${FRONT_VOLUME_LOCAL_PATH}:/usr/share/nginx/html:ro
     environment:
       - APP_URL=${APP_URL}
       - APP_PORT=${APP_PORT}
