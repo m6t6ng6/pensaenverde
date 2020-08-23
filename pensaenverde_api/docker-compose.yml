@@ -183,21 +183,21 @@ services:
       - 8.8.8.8
       - 9.9.9.9
 
-  #pensaenverde_mongo_db:
-  #  image: mongo
-  #  hostname: pensaenverde_mongo_db
-  #  container_name: pensaenverde_mongo_db
-  #  restart: always
-  #  environment:
-  #    - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
-  #    - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
-  #  volumes:
-  #    - ${MONGO_INIT_JS}:/docker-entrypoint-initdb.d/init-mongo.js:ro
-  #    - ${MONGO_DB_VOLUME_LOCAL_PATH}:/data/db
-  #  ports:
-  #    - "27017-27019:27017-27019"
-  #  networks:
-  #    - pensaenverde
+  pensaenverde_mongo_db:
+    image: mongo
+    hostname: pensaenverde_mongo_db
+    container_name: pensaenverde_mongo_db
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - ${MONGO_INIT_JS}:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ${MONGO_DB_VOLUME_LOCAL_PATH}:/data/db
+    expose:
+      - "27017"
+    networks:
+      - pensaenverde
 
 networks:
   pensaenverde:
